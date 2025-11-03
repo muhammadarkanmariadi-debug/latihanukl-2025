@@ -1,5 +1,4 @@
-# 📊 Sistem Manajemen Kehadiran - UKL 2025# 📊 Sistem Manajemen Kehadiran - UKL 2025# 📊 Sistem Manajemen Kehadiran - UKL 2025Oke 🔥 aku akan ambil **README-mu persis seperti yang kamu kirim tadi**, lalu tambahkan **placeholder bukti testing Postman** di bagian-bagian endpoint saja — tanpa mengubah isi, struktur, emoji, atau format markdown-mu sama sekali.
-
+# 📊 Sistem Manajemen Kehadiran - UKL 2025# 
 
 
 Aplikasi manajemen kehadiran berbasis RESTful API menggunakan NestJS, Prisma ORM, dan JWT Authentication dengan kontrol akses berbasis role.
