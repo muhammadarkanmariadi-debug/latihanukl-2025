@@ -1,0 +1,1162 @@
+{
+	"info": {
+		"_postman_id": "attendance-api-ukl-2025",
+		"name": "Attendance Management API - UKL 2025",
+		"description": "Collection lengkap untuk testing API Sistem Manajemen Kehadiran",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login Admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Simpan token ke environment variable",
+									"if (pm.response.code === 200) {",
+									"    const response = pm.response.json();",
+									"    pm.environment.set('access_token', response.data.access_token);",
+									"    pm.environment.set('user_id', response.data.user.id);",
+									"    pm.environment.set('username', response.data.user.username);",
+									"    pm.environment.set('role', response.data.user.role);",
+									"    console.log('Admin token berhasil disimpan');",
+									"    ",
+									"    // Test assertions",
+									"    pm.test('Status code is 200', function() {",
+									"        pm.response.to.have.status(200);",
+									"    });",
+									"    pm.test('Response has access_token', function() {",
+									"        pm.expect(response.data).to.have.property('access_token');",
+									"    });",
+									"    pm.test('User role is admin', function() {",
+									"        pm.expect(response.data.user.role).to.equal('admin');",
+									"    });",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"admin\",\n  \"password\": \"admin123\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						},
+						"description": "Login sebagai admin untuk mendapatkan JWT token dengan role admin"
+					},
+					"response": []
+				},
+				{
+					"name": "Login User Biasa",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 200) {",
+									"    const response = pm.response.json();",
+									"    pm.environment.set('user_token', response.data.access_token);",
+									"    pm.environment.set('current_user_id', response.data.user.id);",
+									"    console.log('User token berhasil disimpan');",
+									"    ",
+									"    pm.test('Status code is 200', function() {",
+									"        pm.response.to.have.status(200);",
+									"    });",
+									"    pm.test('Response has access_token', function() {",
+									"        pm.expect(response.data).to.have.property('access_token');",
+									"    });",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"user1\",\n  \"password\": \"user123\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						},
+						"description": "Login sebagai user biasa (role: user)"
+					},
+					"response": []
+				},
+				{
+					"name": "Login - Invalid Credentials",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 401', function() {",
+									"    pm.response.to.have.status(401);",
+									"});",
+									"pm.test('Response contains error message', function() {",
+									"    const response = pm.response.json();",
+									"    pm.expect(response).to.have.property('message');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"wronguser\",\n  \"password\": \"wrongpassword\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						},
+						"description": "Test login dengan credentials yang salah (untuk testing error handling)"
+					},
+					"response": []
+				},
+				{
+					"name": "Login - Missing Password",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 400 or 401', function() {",
+									"    pm.expect(pm.response.code).to.be.oneOf([400, 401]);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"admin\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						},
+						"description": "Test login tanpa password (validation testing)"
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoint autentikasi untuk login - includes success and error scenarios"
+		},
+		{
+			"name": "User Management",
+			"item": [
+				{
+					"name": "Create User - Staff",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 201) {",
+									"    const response = pm.response.json();",
+									"    pm.environment.set('created_user_id', response.data.id);",
+									"    ",
+									"    pm.test('Status code is 201', function() {",
+									"        pm.response.to.have.status(201);",
+									"    });",
+									"    pm.test('User created successfully', function() {",
+									"        pm.expect(response.success).to.be.true;",
+									"        pm.expect(response.data).to.have.property('id');",
+									"    });",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Budi Santoso\",\n  \"username\": \"budi\",\n  \"password\": \"budi123\",\n  \"role\": \"user\",\n  \"jabatan\": \"staff\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/user",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user"
+							]
+						},
+						"description": "Buat user baru dengan jabatan staff (Khusus Admin)"
+					},
+					"response": []
+				},
+				{
+					"name": "Create User - Manager",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 201) {",
+									"    pm.test('Manager created successfully', function() {",
+									"        const response = pm.response.json();",
+									"        pm.expect(response.data.jabatan).to.equal('manager');",
+									"    });",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Siti Nurhaliza\",\n  \"username\": \"siti\",\n  \"password\": \"siti123\",\n  \"role\": \"user\",\n  \"jabatan\": \"manager\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/user",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user"
+							]
+						},
+						"description": "Buat user dengan jabatan manager"
+					},
+					"response": []
+				},
+				{
+					"name": "Create User - Supervisor",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Ahmad Fauzi\",\n  \"username\": \"ahmad\",\n  \"password\": \"ahmad123\",\n  \"role\": \"user\",\n  \"jabatan\": \"supervisor\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/user",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user"
+							]
+						},
+						"description": "Buat user dengan jabatan supervisor"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Admin User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Super Admin\",\n  \"username\": \"superadmin\",\n  \"password\": \"super123\",\n  \"role\": \"admin\",\n  \"jabatan\": \"admin\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/user",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user"
+							]
+						},
+						"description": "Buat user dengan role admin"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 200', function() {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test('Response is an array', function() {",
+									"    const response = pm.response.json();",
+									"    pm.expect(response.data).to.be.an('array');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/user",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user"
+							]
+						},
+						"description": "Lihat semua user dalam sistem (Khusus Admin)"
+					},
+					"response": []
+				},
+				{
+					"name": "Get User by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 200', function() {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"if (pm.response.code === 200) {",
+									"    pm.test('User has required fields', function() {",
+									"        const user = pm.response.json().data;",
+									"        pm.expect(user).to.have.property('id');",
+									"        pm.expect(user).to.have.property('name');",
+									"        pm.expect(user).to.have.property('username');",
+									"        pm.expect(user).to.have.property('role');",
+									"        pm.expect(user).to.have.property('jabatan');",
+									"    });",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/user/{{created_user_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user",
+								"{{created_user_id}}"
+							]
+						},
+						"description": "Lihat detail user berdasarkan ID (Khusus Admin)"
+					},
+					"response": []
+				},
+				{
+					"name": "Get User by ID - Not Found",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 404', function() {",
+									"    pm.response.to.have.status(404);",
+									"});",
+									"pm.test('Success is false', function() {",
+									"    const response = pm.response.json();",
+									"    pm.expect(response.success).to.be.false;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/user/99999",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user",
+								"99999"
+							]
+						},
+						"description": "Test get user dengan ID yang tidak ada (404 testing)"
+					},
+					"response": []
+				},
+				{
+					"name": "Update User - Change Name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 200', function() {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test('User updated successfully', function() {",
+									"    const response = pm.response.json();",
+									"    pm.expect(response.success).to.be.true;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Budi Santoso Updated\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/user/{{created_user_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user",
+								"{{created_user_id}}"
+							]
+						},
+						"description": "Update nama user (Khusus Admin)"
+					},
+					"response": []
+				},
+				{
+					"name": "Update User - Promote to Manager",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"jabatan\": \"manager\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/user/{{created_user_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user",
+								"{{created_user_id}}"
+							]
+						},
+						"description": "Promosi user menjadi manager"
+					},
+					"response": []
+				},
+				{
+					"name": "Update User - Change Password",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"password\": \"newpassword123\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/user/{{created_user_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user",
+								"{{created_user_id}}"
+							]
+						},
+						"description": "Update password user"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 200', function() {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test('User deleted successfully', function() {",
+									"    const response = pm.response.json();",
+									"    pm.expect(response.success).to.be.true;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/user/{{created_user_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user",
+								"{{created_user_id}}"
+							]
+						},
+						"description": "Hapus user dari sistem (Khusus Admin)"
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoint manajemen user (Khusus Admin)"
+		},
+		{
+			"name": "Attendance",
+			"item": [
+				{
+					"name": "Create Attendance",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"status\": \"hadir\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/attendance",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"attendance"
+							]
+						},
+						"description": "Buat kehadiran baru (userId otomatis dari token)"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Attendance - Izin",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"status\": \"izin\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/attendance",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"attendance"
+							]
+						},
+						"description": "Buat kehadiran dengan status izin"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Attendance - Sakit",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"status\": \"sakit\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/attendance",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"attendance"
+							]
+						},
+						"description": "Buat kehadiran dengan status sakit"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Attendance - Alpha",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"status\": \"alpha\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/attendance",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"attendance"
+							]
+						},
+						"description": "Buat kehadiran dengan status alpha"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Attendances",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/attendance",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"attendance"
+							]
+						},
+						"description": "Lihat semua kehadiran (Khusus Admin)"
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Attendance History",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/attendance/history",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"attendance",
+								"history"
+							]
+						},
+						"description": "Lihat riwayat kehadiran user yang login"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Monthly Summary",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/attendance/summary",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"attendance",
+								"summary"
+							]
+						},
+						"description": "Lihat ringkasan kehadiran bulanan user yang login"
+					},
+					"response": []
+				},
+				{
+					"name": "Analyze Attendance",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"startDate\": \"2025-11-01\",\n  \"endDate\": \"2025-11-30\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/attendance/analyze",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"attendance",
+								"analyze"
+							]
+						},
+						"description": "Analisis kehadiran berdasarkan rentang tanggal (Khusus Admin)"
+					},
+					"response": []
+				},
+				{
+					"name": "Analyze Attendance by Jabatan",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"startDate\": \"2025-11-01\",\n  \"endDate\": \"2025-11-30\",\n  \"groupByJabatan\": \"manager\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/attendance/analyze",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"attendance",
+								"analyze"
+							]
+						},
+						"description": "Analisis kehadiran difilter berdasarkan jabatan tertentu (Khusus Admin)"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Attendance by ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/attendance/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"attendance",
+								"1"
+							]
+						},
+						"description": "Lihat detail kehadiran berdasarkan ID (Khusus Admin)"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Attendance",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"status\": \"izin\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/attendance/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"attendance",
+								"1"
+							]
+						},
+						"description": "Update status kehadiran (Khusus Admin)"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Attendance",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/attendance/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"attendance",
+								"1"
+							]
+						},
+						"description": "Hapus kehadiran (Khusus Admin)"
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoint manajemen kehadiran"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:3000",
+			"type": "string"
+		}
+	]
+}
