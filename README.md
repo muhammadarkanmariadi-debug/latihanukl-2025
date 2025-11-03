@@ -1,223 +1,186 @@
-# 📊 Sistem Manajemen Kehadiran - UKL 2025# 
+<div align="center">
 
+# 📊 Sistem Manajemen Kehadiran - UKL 2025
 
-Aplikasi manajemen kehadiran berbasis RESTful API menggunakan NestJS, Prisma ORM, dan JWT Authentication dengan kontrol akses berbasis role.
+[![NestJS](https://img.shields.io/badge/NestJS-11.x-E0234E?style=for-the-badge&logo=nestjs&logoColor=white)](https://nestjs.com/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.7.x-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Prisma](https://img.shields.io/badge/Prisma-6.18.x-2D3748?style=for-the-badge&logo=prisma&logoColor=white)](https://www.prisma.io/)
+[![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com/)
+[![JWT](https://img.shields.io/badge/JWT-Auth-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white)](https://jwt.io/)
 
+**Aplikasi manajemen kehadiran berbasis RESTful API dengan NestJS, Prisma ORM, dan JWT Authentication**
 
+[Fitur](#-fitur-utama) • [Instalasi](#-instalasi) • [API Docs](#-dokumentasi-api) • [Postman](#-postman-collection) • [Testing](#-testing)
 
-> **📌 Notes:** Import Postman collection dan environment untuk melakukan testing pada PostmanAplikasi manajemen kehadiran berbasis RESTful API menggunakan NestJS, Prisma ORM, dan JWT Authentication dengan kontrol akses berbasis role.Notes : Import postman collection dan environtment untuk melakukan testing pada postman 
+</div>
+
+---
+
+## 📋 Daftar Isi
+
+- [Tentang Project](#-tentang-project)
+- [Teknologi](#-teknologi-yang-digunakan)
+- [Fitur Utama](#-fitur-utama)
+- [Struktur Project](#-struktur-project)
+- [Database Schema](#️-database-schema)
+- [Instalasi](#-instalasi)
+- [Dokumentasi API](#-dokumentasi-api)
+- [Postman Collection](#-postman-collection)
+- [Security](#-security)
+- [Troubleshooting](#-troubleshooting)
+
+---
+
+## 💡 Tentang Project
+
+Sistem Manajemen Kehadiran adalah aplikasi backend berbasis **NestJS** yang dirancang untuk mengelola data kehadiran karyawan dengan fitur autentikasi JWT dan kontrol akses berbasis role (Admin & User). Aplikasi ini mendukung operasi CRUD lengkap, analitik kehadiran, dan manajemen user dengan berbagai tingkat jabatan.
+
+> **📌 Important Note:** Import file Postman Collection dan Environment yang tersedia untuk testing API dengan mudah!
+
+---
+
+## 🚀 Teknologi yang Digunakan
+
+| Teknologi | Versi | Keterangan |
+|-----------|-------|------------|
+| **Framework** | NestJS 11.x | Progressive Node.js framework |
+| **Language** | TypeScript 5.7.x | Type-safe development |
+| **Database** | MySQL 8.0 | Relational database |
+| **ORM** | Prisma 6.18.x | Next-gen ORM toolkit |
+| **Authentication** | JWT | Token-based authentication |
+| **Password Hash** | bcrypt | Secure password hashing |
+| **Runtime** | Node.js 18+ | JavaScript runtime |
 
 
 
 ---
 
+## ✨ Fitur Utama
 
+### 🔐 Autentikasi & Otorisasi
+- ✅ JWT-based authentication dengan token expiration
+- ✅ Role-based access control (Admin & User)
+- ✅ Password hashing menggunakan bcrypt
+- ✅ Protected routes dengan guards
 
-## 🚀 Teknologi yang Digunakan> **📌 Notes:** Import Postman collection dan environment untuk melakukan testing pada PostmanAplikasi manajemen kehadiran berbasis RESTful API menggunakan NestJS, Prisma ORM, dan JWT Authentication dengan kontrol akses berbasis role.Hasil akhirnya nanti kamu tinggal ganti path gambarnya aja (`docs/images/...`) sesuai screenshot milikmu.
+### 👥 Manajemen User
+- ✅ CRUD operations untuk user management
+- ✅ Multi-role support (Admin/User)
+- ✅ Multi-jabatan support (Staff/Manager/Supervisor/Admin)
+- ✅ Update profile, password, dan jabatan
+- ✅ Admin-only endpoints untuk manajemen user
 
-
-
-| Teknologi | Versi | Keterangan |
-
-|-----------|-------|------------|
-
-| **Framework** | NestJS 11.x | Backend framework |---
-
-| **Bahasa** | TypeScript 5.7.x | Type-safe programming |
-
-| **Database** | MySQL | Relational database |
-
-| **ORM** | Prisma 6.18.x | Modern database toolkit |
-
-| **Autentikasi** | JWT (@nestjs/jwt) | Token-based auth |## 🚀 Teknologi yang Digunakan## 🚀 Teknologi yang DigunakanBerikut versi **README.md**-nya 👇
-
-| **Password Hashing** | bcrypt | Secure password storage |
-
-| **Runtime** | Node.js | JavaScript runtime |
-
-
-
----| Teknologi | Versi | Keterangan |
-
-
-
-## 📋 Fitur-Fitur|-----------|-------|------------|
-
-
-
-### 🔐 Autentikasi & Otorisasi| **Framework** | NestJS 11.x | Backend framework |- **Framework**: NestJS 11.x---
-
-- ✅ Autentikasi berbasis JWT
-
-- ✅ Kontrol akses berbasis role (Admin & User)| **Bahasa** | TypeScript 5.7.x | Type-safe programming |
-
-- ✅ Password di-hash dengan bcrypt
-
-- ✅ Middleware validasi token| **Database** | MySQL | Relational database |- **Bahasa**: TypeScript 5.7.x
-
-
-
-### 👥 Manajemen User| **ORM** | Prisma 6.18.x | Modern database toolkit |
-
-- ✅ Operasi CRUD untuk user
-
-- ✅ Role user (admin/user)| **Autentikasi** | JWT (@nestjs/jwt) | Token-based auth |- **Database**: MySQL```markdown
-
-- ✅ Penugasan jabatan (staff, manager, supervisor, admin)
-
-- ✅ Endpoint khusus admin| **Password Hashing** | bcrypt | Secure password storage |
-
-
-
-### 📅 Sistem Kehadiran| **Runtime** | Node.js | JavaScript runtime |- **ORM**: Prisma 6.18.x# 📊 Sistem Manajemen Kehadiran - UKL 2025
-
-- ✅ Membuat record kehadiran
-
-- ✅ Melihat riwayat kehadiran
-
+### 📅 Sistem Kehadiran
+- ✅ Pencatatan kehadiran dengan 4 status (Hadir, Izin, Sakit, Alpha)
+- ✅ Riwayat kehadiran per user
 - ✅ Ringkasan kehadiran bulanan
+- ✅ Update dan delete kehadiran
+- ✅ Filter berdasarkan tanggal
 
-- ✅ Analitik lanjutan per jabatan---- **Autentikasi**: JWT (@nestjs/jwt)
+### 📊 Analitik & Reporting
+- ✅ Analisis kehadiran dengan filter rentang tanggal
+- ✅ Analisis per jabatan (Staff/Manager/Supervisor)
+- ✅ Perhitungan persentase kehadiran
+- ✅ Summary statistics untuk admin
 
-- ✅ Filter berdasarkan rentang tanggal
+---
 
-- ✅ Tracking status (Hadir, Izin, Sakit, Alpha)
+## 📁 Struktur Project
 
-
-
-### 📊 Analitik & Pelaporan## 📋 Fitur-Fitur- **Password Hashing**: bcryptAplikasi manajemen kehadiran berbasis RESTful API menggunakan NestJS, Prisma ORM, dan JWT Authentication dengan kontrol akses berbasis role.
-
-- ✅ Analisis kehadiran dikelompokkan per jabatan
-
-- ✅ Kalkulasi persentase per status
-
-- ✅ Filter rentang tanggal
-
-- ✅ Ringkasan per user### 🔐 Autentikasi & Otorisasi- **Runtime**: Node.js
-
-
-
----- ✅ Autentikasi berbasis JWT
-
-
-
-## 📁 Struktur Project- ✅ Kontrol akses berbasis role (Admin & User)## 🚀 Teknologi yang Digunakan
-
-
-
-```- ✅ Password di-hash dengan bcrypt
-
+```
 latihanukl2025/
-
-├── prisma/- ✅ Middleware validasi token## 📋 Fitur-Fitur
-
-│   ├── schema.prisma          # Schema database
-
-│   ├── migrations/            # Migrasi database
-
-│   ├── prisma.module.ts       # Module Prisma
-
-│   └── prisma.service.ts      # Service Prisma### 👥 Manajemen User- **Framework**: NestJS 11.x
-
-├── src/
-
-│   ├── main.ts                # Entry point aplikasi- ✅ Operasi CRUD untuk user
-
-│   ├── app.module.ts          # Module utama
-
-│   ├── auth/                  # Module autentikasi- ✅ Role user (admin/user)### 🔐 Autentikasi & Otorisasi- **Bahasa**: TypeScript 5.7.x
-
+├── 📂 prisma/
+│   ├── schema.prisma              # Database schema
+│   ├── prisma.module.ts           # Prisma module
+│   ├── prisma.service.ts          # Prisma service
+│   └── 📂 migrations/             # Database migrations
+│
+├── 📂 src/
+│   ├── main.ts                    # Application entry point
+│   ├── app.module.ts              # Root module
+│   ├── app.controller.ts          # Root controller
+│   ├── app.service.ts             # Root service
+│   │
+│   ├── 📂 auth/                   # Authentication module
 │   │   ├── auth.controller.ts
-
-│   │   ├── auth.service.ts- ✅ Penugasan jabatan (staff, manager, supervisor, admin)
-
-│   │   └── dto/
-
-│   ├── user/                  # Module manajemen user- ✅ Endpoint khusus admin- ✅ Autentikasi berbasis JWT- **Database**: MySQL
-
+│   │   ├── auth.service.ts
+│   │   └── 📂 dto/
+│   │
+│   ├── 📂 user/                   # User management module
 │   │   ├── user.controller.ts
-
 │   │   ├── user.service.ts
-
-│   │   └── dto/
-
-│   ├── attendance/            # Module kehadiran### 📅 Sistem Kehadiran- ✅ Kontrol akses berbasis role (Admin & User)- **ORM**: Prisma 6.18.x
-
+│   │   ├── 📂 dto/
+│   │   └── 📂 entities/
+│   │
+│   ├── 📂 attendance/             # Attendance module
 │   │   ├── attendance.controller.ts
-
-│   │   ├── attendance.service.ts- ✅ Membuat record kehadiran
-
-│   │   └── dto/
-
-│   ├── guards/                # Security guards- ✅ Melihat riwayat kehadiran- ✅ Password di-hash dengan bcrypt- **Autentikasi**: JWT (@nestjs/jwt)
-
+│   │   ├── attendance.service.ts
+│   │   ├── 📂 dto/
+│   │   └── 📂 entities/
+│   │
+│   ├── 📂 guards/                 # Security guards
 │   │   ├── jwt-auth.guard.ts
-
-│   │   └── roles.guard.ts- ✅ Ringkasan kehadiran bulanan
-
-│   └── decorators/
-
-│       └── roles.decorator.ts- ✅ Analitik lanjutan per jabatan- ✅ Middleware validasi token- **Password Hashing**: bcrypt
-
-└── test/                      # Testing E2E
-
-```- ✅ Filter berdasarkan rentang tanggal
-
-
-
----- ✅ Tracking status (Hadir, Izin, Sakit, Alpha)- **Runtime**: Node.js
-
-
-
-## 🗄️ Skema Database
-
-
-
-### Tabel User### 📊 Analitik & Pelaporan### 👥 Manajemen User
-
-```sql
-
-id          : INT (Primary Key, Auto Increment)- ✅ Analisis kehadiran dikelompokkan per jabatan
-
-name        : STRING
-
-username    : STRING (Unique)- ✅ Kalkulasi persentase per status- ✅ Operasi CRUD untuk user## 📋 Fitur-Fitur
-
-password    : STRING (Di-hash dengan bcrypt)
-
-role        : STRING (default: "user")- ✅ Filter rentang tanggal
-
-jabatan     : STRING (default: "staff")
-
-createdAt   : DATETIME- ✅ Ringkasan per user- ✅ Role user (admin/user)
-
-updatedAt   : DATETIME
+│   │   └── roles.guard.ts
+│   │
+│   └── 📂 decorators/             # Custom decorators
+│       └── roles.decorator.ts
+│
+├── 📂 test/                       # E2E tests
+├── 📂 images/                     # Postman screenshots
+├── 📄 package.json
+├── 📄 tsconfig.json
+├── 📄 nest-cli.json
+├── 📄 .env                        # Environment variables
+└── 📄 README.md
 
 ```
 
+---
 
+## 🗄️ Database Schema
 
-### Tabel Attendance---- ✅ Penugasan jabatan### 🔐 Autentikasi & Otorisasi
+### 📊 Entity Relationship Diagram
 
-```sql
+```
+┌─────────────────────┐           ┌─────────────────────┐
+│       User          │           │     Attendance      │
+├─────────────────────┤           ├─────────────────────┤
+│ id (PK)            │ 1       N │ id (PK)            │
+│ name               │───────────│ userId (FK)        │
+│ username (UNIQUE)  │           │ date               │
+│ password (HASHED)  │           │ status             │
+│ role               │           │ createdAt          │
+│ jabatan            │           │ updatedAt          │
+│ createdAt          │           └─────────────────────┘
+│ updatedAt          │
+└─────────────────────┘
+```
 
-id          : INT (Primary Key, Auto Increment)
+### 📝 Table: User
 
-userId      : INT (Foreign Key → User.id)
+| Column | Type | Constraint | Default | Description |
+|--------|------|------------|---------|-------------|
+| `id` | INT | PRIMARY KEY, AUTO_INCREMENT | - | Unique identifier |
+| `name` | VARCHAR | NOT NULL | - | Nama lengkap user |
+| `username` | VARCHAR | UNIQUE, NOT NULL | - | Username untuk login |
+| `password` | VARCHAR | NOT NULL | - | Password (bcrypt hashed) |
+| `role` | VARCHAR | NOT NULL | `"user"` | Role: admin/user |
+| `jabatan` | VARCHAR | NOT NULL | `"staff"` | Jabatan: staff/manager/supervisor/admin |
+| `createdAt` | DATETIME | NOT NULL | NOW() | Timestamp pembuatan |
+| `updatedAt` | DATETIME | NOT NULL | NOW() | Timestamp update terakhir |
 
-date        : DATETIME## 📁 Struktur Project- ✅ Endpoint khusus admin- ✅ Autentikasi berbasis JWT
+### 📝 Table: Attendance
 
-status      : STRING (hadir/izin/sakit/alpha)
+| Column | Type | Constraint | Default | Description |
+|--------|------|------------|---------|-------------|
+| `id` | INT | PRIMARY KEY, AUTO_INCREMENT | - | Unique identifier |
+| `userId` | INT | FOREIGN KEY → User.id | - | Referensi ke user |
+| `date` | DATETIME | NOT NULL | NOW() | Tanggal kehadiran |
+| `status` | VARCHAR | NOT NULL | - | Status: hadir/izin/sakit/alpha |
+| `createdAt` | DATETIME | NOT NULL | NOW() | Timestamp pembuatan |
+| `updatedAt` | DATETIME | NOT NULL | NOW() | Timestamp update terakhir |
 
-createdAt   : DATETIME
-
-updatedAt   : DATETIME
-
-``````- ✅ Kontrol akses berbasis role (Admin & User)
-
-
-
-**Relasi:** User (1) → Attendance (N) - One to Manylatihanukl2025/
+**📌 Relasi:** User (1) → Attendance (N) - One-to-Many Relationship
 
 
 
