@@ -1360,7 +1360,7 @@ Authorization: Bearer <admin-token>Authorization: Bearer <admin-token>
 
 **Penyebab:**Content-Type: application/jsonContent-Type: application/json
 
-- Token sudah expired (> 24 jam)
+- Token sudah expired (> 2 jam)
 
 - Format header salah
 
