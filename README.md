@@ -610,7 +610,7 @@ Authorization: Bearer <admin-token>
 
 ### 🔑 JWT Token
 
-- ⏰ **Token Expiration:** 24 jam
+- ⏰ **Token Expiration:** 2 jam
 - 📋 **Token Payload:** `userId`, `username`, `role`
 - 📤 **Header Format:** `Authorization: Bearer <token>`
 - 🔄 **Refresh:** Login ulang setelah token expired
@@ -741,7 +741,7 @@ npx prisma db pull
 ### ❌ JWT Token Invalid
 
 **Penyebab:**
-- Token sudah expired (> 24 jam)
+- Token sudah expired (> 2 jam)
 - Format header salah
 - Token tidak dari endpoint `/auth/login`
 
