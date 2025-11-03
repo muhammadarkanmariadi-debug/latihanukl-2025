@@ -1,376 +1,1516 @@
-# 📊 Sistem Manajemen Kehadiran - UKL 2025Oke 🔥 aku akan ambil **README-mu persis seperti yang kamu kirim tadi**, lalu tambahkan **placeholder bukti testing Postman** di bagian-bagian endpoint saja — tanpa mengubah isi, struktur, emoji, atau format markdown-mu sama sekali.
+# 📊 Sistem Manajemen Kehadiran - UKL 2025# 📊 Sistem Manajemen Kehadiran - UKL 2025Oke 🔥 aku akan ambil **README-mu persis seperti yang kamu kirim tadi**, lalu tambahkan **placeholder bukti testing Postman** di bagian-bagian endpoint saja — tanpa mengubah isi, struktur, emoji, atau format markdown-mu sama sekali.
 
-Notes : Import postman collection dan environtment untuk melakukan testing pada postman 
 
-Aplikasi manajemen kehadiran berbasis RESTful API menggunakan NestJS, Prisma ORM, dan JWT Authentication dengan kontrol akses berbasis role.Hasil akhirnya nanti kamu tinggal ganti path gambarnya aja (`docs/images/...`) sesuai screenshot milikmu.
 
+Aplikasi manajemen kehadiran berbasis RESTful API menggunakan NestJS, Prisma ORM, dan JWT Authentication dengan kontrol akses berbasis role.Notes : Import postman collection dan environtment untuk melakukan testing pada postman 
 
 
-## 🚀 Teknologi yang DigunakanBerikut versi **README.md**-nya 👇
 
+> **📌 Notes:** Import Postman collection dan environment untuk melakukan testing pada PostmanAplikasi manajemen kehadiran berbasis RESTful API menggunakan NestJS, Prisma ORM, dan JWT Authentication dengan kontrol akses berbasis role.Hasil akhirnya nanti kamu tinggal ganti path gambarnya aja (`docs/images/...`) sesuai screenshot milikmu.
 
 
-- **Framework**: NestJS 11.x---
 
-- **Bahasa**: TypeScript 5.7.x
+---
 
-- **Database**: MySQL```markdown
 
-- **ORM**: Prisma 6.18.x# 📊 Sistem Manajemen Kehadiran - UKL 2025
 
-- **Autentikasi**: JWT (@nestjs/jwt)
+## 🚀 Teknologi yang Digunakan## 🚀 Teknologi yang DigunakanBerikut versi **README.md**-nya 👇
 
-- **Password Hashing**: bcryptAplikasi manajemen kehadiran berbasis RESTful API menggunakan NestJS, Prisma ORM, dan JWT Authentication dengan kontrol akses berbasis role.
 
-- **Runtime**: Node.js
 
-## 🚀 Teknologi yang Digunakan
+| Teknologi | Versi | Keterangan |
 
-## 📋 Fitur-Fitur
+|-----------|-------|------------|
 
-- **Framework**: NestJS 11.x
+| **Framework** | NestJS 11.x | Backend framework |- **Framework**: NestJS 11.x---
 
-### 🔐 Autentikasi & Otorisasi- **Bahasa**: TypeScript 5.7.x
+| **Bahasa** | TypeScript 5.7.x | Type-safe programming |
 
-- ✅ Autentikasi berbasis JWT- **Database**: MySQL
+| **Database** | MySQL | Relational database |- **Bahasa**: TypeScript 5.7.x
 
-- ✅ Kontrol akses berbasis role (Admin & User)- **ORM**: Prisma 6.18.x
+| **ORM** | Prisma 6.18.x | Modern database toolkit |
 
-- ✅ Password di-hash dengan bcrypt- **Autentikasi**: JWT (@nestjs/jwt)
+| **Autentikasi** | JWT (@nestjs/jwt) | Token-based auth |- **Database**: MySQL```markdown
 
-- ✅ Middleware validasi token- **Password Hashing**: bcrypt
+| **Password Hashing** | bcrypt | Secure password storage |
 
-- **Runtime**: Node.js
+| **Runtime** | Node.js | JavaScript runtime |- **ORM**: Prisma 6.18.x# 📊 Sistem Manajemen Kehadiran - UKL 2025
 
-### 👥 Manajemen User
 
-- ✅ Operasi CRUD untuk user## 📋 Fitur-Fitur
 
-- ✅ Role user (admin/user)
+---- **Autentikasi**: JWT (@nestjs/jwt)
 
-- ✅ Penugasan jabatan### 🔐 Autentikasi & Otorisasi
 
-- ✅ Endpoint khusus admin- ✅ Autentikasi berbasis JWT
 
-- ✅ Kontrol akses berbasis role (Admin & User)
+## 📋 Fitur-Fitur- **Password Hashing**: bcryptAplikasi manajemen kehadiran berbasis RESTful API menggunakan NestJS, Prisma ORM, dan JWT Authentication dengan kontrol akses berbasis role.
 
-### 📅 Sistem Kehadiran- ✅ Password di-hash dengan bcrypt
 
-- ✅ Membuat record kehadiran- ✅ Middleware validasi token
 
-- ✅ Melihat riwayat kehadiran
+### 🔐 Autentikasi & Otorisasi- **Runtime**: Node.js
 
-- ✅ Ringkasan kehadiran bulanan### 👥 Manajemen User
+- ✅ Autentikasi berbasis JWT
 
-- ✅ Analitik lanjutan per jabatan- ✅ Operasi CRUD untuk user
+- ✅ Kontrol akses berbasis role (Admin & User)## 🚀 Teknologi yang Digunakan
 
-- ✅ Filter berdasarkan rentang tanggal- ✅ Role user (admin/user)
+- ✅ Password di-hash dengan bcrypt
 
-- ✅ Tracking status (Hadir, Izin, Sakit, Alpha)- ✅ Penugasan jabatan
+- ✅ Middleware validasi token## 📋 Fitur-Fitur
 
-- ✅ Endpoint khusus admin
 
-### 📊 Analitik & Pelaporan
 
-- ✅ Analisis kehadiran dikelompokkan per jabatan### 📅 Sistem Kehadiran
+### 👥 Manajemen User- **Framework**: NestJS 11.x
 
-- ✅ Kalkulasi persentase per status- ✅ Membuat record kehadiran
+- ✅ Operasi CRUD untuk user
 
-- ✅ Filter rentang tanggal- ✅ Melihat riwayat kehadiran
+- ✅ Role user (admin/user)### 🔐 Autentikasi & Otorisasi- **Bahasa**: TypeScript 5.7.x
 
-- ✅ Ringkasan per user- ✅ Ringkasan kehadiran bulanan
+- ✅ Penugasan jabatan (staff, manager, supervisor, admin)
 
-- ✅ Analitik lanjutan per jabatan
+- ✅ Endpoint khusus admin- ✅ Autentikasi berbasis JWT- **Database**: MySQL
 
-## 📁 Struktur Project- ✅ Filter berdasarkan rentang tanggal
 
-- ✅ Tracking status (Hadir, Izin, Sakit, Alpha)
 
-```
+### 📅 Sistem Kehadiran- ✅ Kontrol akses berbasis role (Admin & User)- **ORM**: Prisma 6.18.x
 
-latihanukl2025/### 📊 Analitik & Pelaporan
+- ✅ Membuat record kehadiran
 
-├── prisma/- ✅ Analisis kehadiran dikelompokkan per jabatan
+- ✅ Melihat riwayat kehadiran- ✅ Password di-hash dengan bcrypt- **Autentikasi**: JWT (@nestjs/jwt)
 
-│   ├── schema.prisma          # Schema database- ✅ Kalkulasi persentase per status
+- ✅ Ringkasan kehadiran bulanan
 
-│   ├── migrations/            # Migrasi database- ✅ Filter rentang tanggal
+- ✅ Analitik lanjutan per jabatan- ✅ Middleware validasi token- **Password Hashing**: bcrypt
 
-│   ├── prisma.module.ts       # Module Prisma- ✅ Ringkasan per user
+- ✅ Filter berdasarkan rentang tanggal
 
-│   └── prisma.service.ts      # Service Prisma
+- ✅ Tracking status (Hadir, Izin, Sakit, Alpha)- **Runtime**: Node.js
 
-├── src/## 📁 Struktur Project
 
-│   ├── main.ts                # Entry point aplikasi
 
-│   ├── app.module.ts          # Module utama```
+### 📊 Analitik & Pelaporan### 👥 Manajemen User
 
-│   ├── auth/                  # Module autentikasi
+- ✅ Analisis kehadiran dikelompokkan per jabatan
 
-│   │   ├── auth.controller.tslatihanukl2025/
+- ✅ Kalkulasi persentase per status- ✅ Operasi CRUD untuk user## 📋 Fitur-Fitur
 
-│   │   ├── auth.service.ts├── prisma/
+- ✅ Filter rentang tanggal
 
-│   │   └── dto/│   ├── schema.prisma          # Schema database
+- ✅ Ringkasan per user- ✅ Role user (admin/user)
 
-│   ├── user/                  # Module manajemen user│   ├── migrations/            # Migrasi database
 
-│   │   ├── user.controller.ts│   ├── prisma.module.ts       # Module Prisma
 
-│   │   ├── user.service.ts│   └── prisma.service.ts      # Service Prisma
+---- ✅ Penugasan jabatan### 🔐 Autentikasi & Otorisasi
 
-│   │   └── dto/├── src/
 
-│   ├── attendance/            # Module kehadiran│   ├── main.ts                # Entry point aplikasi
 
-│   │   ├── attendance.controller.ts│   ├── app.module.ts          # Module utama
+## 📁 Struktur Project- ✅ Endpoint khusus admin- ✅ Autentikasi berbasis JWT
 
-│   │   ├── attendance.service.ts│   ├── auth/                  # Module autentikasi
 
-│   │   └── dto/│   │   ├── auth.controller.ts
 
-│   ├── guards/                # Security guards│   │   ├── auth.service.ts
+```- ✅ Kontrol akses berbasis role (Admin & User)
 
-│   │   ├── jwt-auth.guard.ts│   │   └── dto/
+latihanukl2025/
 
-│   │   └── roles.guard.ts│   ├── user/                  # Module manajemen user
+├── prisma/### 📅 Sistem Kehadiran- ✅ Password di-hash dengan bcrypt
 
-│   └── decorators/│   │   ├── user.controller.ts
+│   ├── schema.prisma          # Schema database
 
-│       └── roles.decorator.ts│   │   ├── user.service.ts
+│   ├── migrations/            # Migrasi database- ✅ Membuat record kehadiran- ✅ Middleware validasi token
 
-└── test/                      # Testing E2E│   │   └── dto/
+│   ├── prisma.module.ts       # Module Prisma
 
-```│   ├── attendance/            # Module kehadiran
+│   └── prisma.service.ts      # Service Prisma- ✅ Melihat riwayat kehadiran
 
-│   │   ├── attendance.controller.ts
+├── src/
 
-## 🗄️ Skema Database│   │   ├── attendance.service.ts
+│   ├── main.ts                # Entry point aplikasi- ✅ Ringkasan kehadiran bulanan### 👥 Manajemen User
+
+│   ├── app.module.ts          # Module utama
+
+│   ├── auth/                  # Module autentikasi- ✅ Analitik lanjutan per jabatan- ✅ Operasi CRUD untuk user
+
+│   │   ├── auth.controller.ts
+
+│   │   ├── auth.service.ts- ✅ Filter berdasarkan rentang tanggal- ✅ Role user (admin/user)
 
 │   │   └── dto/
 
-### Tabel User│   ├── guards/                # Security guards
+│   ├── user/                  # Module manajemen user- ✅ Tracking status (Hadir, Izin, Sakit, Alpha)- ✅ Penugasan jabatan
 
-```sql│   │   ├── jwt-auth.guard.ts
+│   │   ├── user.controller.ts
 
-- id: INT (Primary Key, Auto Increment)│   │   └── roles.guard.ts
+│   │   ├── user.service.ts- ✅ Endpoint khusus admin
 
-- name: STRING│   └── decorators/
+│   │   └── dto/
 
-- username: STRING│       └── roles.decorator.ts
+│   ├── attendance/            # Module kehadiran### 📊 Analitik & Pelaporan
 
-- password: STRING (Di-hash)└── test/                      # Testing E2E
+│   │   ├── attendance.controller.ts
 
-- role: STRING (default: "user")
+│   │   ├── attendance.service.ts- ✅ Analisis kehadiran dikelompokkan per jabatan### 📅 Sistem Kehadiran
 
-- jabatan: STRING (default: "staff")````
+│   │   └── dto/
 
-- createdAt: DATETIME
+│   ├── guards/                # Security guards- ✅ Kalkulasi persentase per status- ✅ Membuat record kehadiran
 
-- updatedAt: DATETIME## 🗄️ Skema Database
+│   │   ├── jwt-auth.guard.ts
 
-```
+│   │   └── roles.guard.ts- ✅ Filter rentang tanggal- ✅ Melihat riwayat kehadiran
 
-### Tabel User
+│   └── decorators/
 
-### Tabel Attendance```sql
+│       └── roles.decorator.ts- ✅ Ringkasan per user- ✅ Ringkasan kehadiran bulanan
 
-```sql- id: INT (Primary Key, Auto Increment)
+└── test/                      # Testing E2E
 
-- id: INT (Primary Key, Auto Increment)- name: STRING
+```- ✅ Analitik lanjutan per jabatan
 
-- userId: INT (Foreign Key → User.id)- username: STRING
 
-- date: DATETIME- password: STRING (Di-hash)
 
-- status: STRING (hadir/izin/sakit/alpha)- role: STRING (default: "user")
+---## 📁 Struktur Project- ✅ Filter berdasarkan rentang tanggal
 
-- createdAt: DATETIME- jabatan: STRING (default: "staff")
 
-- updatedAt: DATETIME- createdAt: DATETIME
 
-```- updatedAt: DATETIME
+## 🗄️ Skema Database- ✅ Tracking status (Hadir, Izin, Sakit, Alpha)
 
-````
 
-## 🔧 Instalasi
 
-### Tabel Attendance
+### Tabel User```
 
-### Prasyarat
+```sql
 
-- Node.js (v18 atau lebih tinggi)```sql
+- id          : INT (Primary Key, Auto Increment)latihanukl2025/### 📊 Analitik & Pelaporan
 
-- MySQL Database- id: INT (Primary Key, Auto Increment)
+- name        : STRING
 
-- npm atau yarn- userId: INT (Foreign Key → User.id)
+- username    : STRING (Unique)├── prisma/- ✅ Analisis kehadiran dikelompokkan per jabatan
 
-- date: DATETIME
+- password    : STRING (Di-hash dengan bcrypt)
 
-### Langkah-langkah Setup- status: STRING (hadir/izin/sakit/alpha)
+- role        : STRING (default: "user")│   ├── schema.prisma          # Schema database- ✅ Kalkulasi persentase per status
 
-- createdAt: DATETIME
+- jabatan     : STRING (default: "staff")
 
-1. **Clone repository**- updatedAt: DATETIME
+- createdAt   : DATETIME│   ├── migrations/            # Migrasi database- ✅ Filter rentang tanggal
 
-```bash```
+- updatedAt   : DATETIME
+
+```│   ├── prisma.module.ts       # Module Prisma- ✅ Ringkasan per user
+
+
+
+### Tabel Attendance│   └── prisma.service.ts      # Service Prisma
+
+```sql
+
+- id          : INT (Primary Key, Auto Increment)├── src/## 📁 Struktur Project
+
+- userId      : INT (Foreign Key → User.id)
+
+- date        : DATETIME│   ├── main.ts                # Entry point aplikasi
+
+- status      : STRING (hadir/izin/sakit/alpha)
+
+- createdAt   : DATETIME│   ├── app.module.ts          # Module utama```
+
+- updatedAt   : DATETIME
+
+```│   ├── auth/                  # Module autentikasi
+
+
+
+**Relasi:** User (1) → Attendance (N) - One to Many│   │   ├── auth.controller.tslatihanukl2025/
+
+
+
+---│   │   ├── auth.service.ts├── prisma/
+
+
+
+## 🔧 Instalasi│   │   └── dto/│   ├── schema.prisma          # Schema database
+
+
+
+### Prasyarat│   ├── user/                  # Module manajemen user│   ├── migrations/            # Migrasi database
+
+- Node.js (v18 atau lebih tinggi)
+
+- MySQL Database│   │   ├── user.controller.ts│   ├── prisma.module.ts       # Module Prisma
+
+- npm atau yarn
+
+│   │   ├── user.service.ts│   └── prisma.service.ts      # Service Prisma
+
+### Langkah-langkah Setup
+
+│   │   └── dto/├── src/
+
+#### 1️⃣ Clone Repository
+
+```bash│   ├── attendance/            # Module kehadiran│   ├── main.ts                # Entry point aplikasi
 
 git clone <repository-url>
 
-cd latihanukl2025## 🔧 Instalasi
+cd latihanukl2025│   │   ├── attendance.controller.ts│   ├── app.module.ts          # Module utama
 
 ```
 
-### Prasyarat
+│   │   ├── attendance.service.ts│   ├── auth/                  # Module autentikasi
 
-2. **Install dependencies**
+#### 2️⃣ Install Dependencies
 
-```bash* Node.js (v18 atau lebih tinggi)
-
-npm install* MySQL Database
-
-```* npm atau yarn
-
-
-
-3. **Konfigurasi environment**### Langkah-langkah Setup
-
-   
-
-   Buat file `.env` di root directory:1. **Clone repository**
-
-```env
-
-DATABASE_URL="mysql://user:password@localhost:3306/attendance_db"```bash
-
-JWT_SECRET="your-super-secret-key-here"git clone <repository-url>
-
-```cd latihanukl2025
-
-```
-
-4. **Setup database**
-
-```bash2. **Install dependencies**
-
-# Generate Prisma Client
-
-npx prisma generate```bash
+```bash│   │   └── dto/│   │   ├── auth.controller.ts
 
 npm install
 
-# Jalankan migrasi```
+```│   ├── guards/                # Security guards│   │   ├── auth.service.ts
 
-npx prisma migrate dev
 
-3. **Konfigurasi environment**
 
-# (Opsional) Seed database   Buat file `.env` di root directory:
+#### 3️⃣ Konfigurasi Environment│   │   ├── jwt-auth.guard.ts│   │   └── dto/
 
-npx prisma db seed
+Buat file `.env` di root directory:
 
-``````env
+```env│   │   └── roles.guard.ts│   ├── user/                  # Module manajemen user
 
 DATABASE_URL="mysql://user:password@localhost:3306/attendance_db"
 
-5. **Jalankan aplikasi**JWT_SECRET="your-super-secret-key-here"
-
-```bash```
-
-# Mode development
-
-npm run start:dev4. **Setup database**
-
-
-
-# Mode production```bash
-
-npm run build# Generate Prisma Client
-
-npm run start:prodnpx prisma generate
+JWT_SECRET="your-super-secret-key-here"│   └── decorators/│   │   ├── user.controller.ts
 
 ```
 
-# Jalankan migrasi
+│       └── roles.decorator.ts│   │   ├── user.service.ts
 
-Aplikasi akan berjalan di `http://localhost:3000`npx prisma migrate dev
+#### 4️⃣ Setup Database
 
+```bash└── test/                      # Testing E2E│   │   └── dto/
 
+# Generate Prisma Client
 
----# (Opsional) Seed database
-
-npx prisma db seed
-
-## 📚 Dokumentasi API```
+npx prisma generate```│   ├── attendance/            # Module kehadiran
 
 
 
-### 🔐 Autentikasi5. **Jalankan aplikasi**
+# Jalankan migrasi│   │   ├── attendance.controller.ts
+
+npx prisma migrate dev
+
+## 🗄️ Skema Database│   │   ├── attendance.service.ts
+
+# (Opsional) Seed database
+
+npx prisma db seed│   │   └── dto/
+
+```
+
+### Tabel User│   ├── guards/                # Security guards
+
+#### 5️⃣ Jalankan Aplikasi
+
+```bash```sql│   │   ├── jwt-auth.guard.ts
+
+# Mode development
+
+npm run start:dev- id: INT (Primary Key, Auto Increment)│   │   └── roles.guard.ts
 
 
 
-#### Login Admin```bash
+# Mode production- name: STRING│   └── decorators/
 
-```http# Mode development
+npm run build
 
-POST /auth/loginnpm run start:dev
+npm run start:prod- username: STRING│       └── roles.decorator.ts
 
-Content-Type: application/json
+```
 
-# Mode production
+- password: STRING (Di-hash)└── test/                      # Testing E2E
 
-{npm run build
+✅ Aplikasi akan berjalan di: **http://localhost:3000**
 
-  "username": "admin",npm run start:prod
+- role: STRING (default: "user")
 
-  "password": "password123"```
+---
+
+- jabatan: STRING (default: "staff")````
+
+## 📚 Dokumentasi API
+
+- createdAt: DATETIME
+
+### 🔐 Modul Autentikasi
+
+- updatedAt: DATETIME## 🗄️ Skema Database
+
+#### 1. Login Admin
+
+```http```
+
+POST /auth/login
+
+Content-Type: application/json### Tabel User
+
+
+
+{### Tabel Attendance```sql
+
+  "username": "admin",
+
+  "password": "password123"```sql- id: INT (Primary Key, Auto Increment)
 
 }
 
-```Aplikasi akan berjalan di `http://localhost:3000`
+```- id: INT (Primary Key, Auto Increment)- name: STRING
 
 
 
-**📷 Bukti Testing (Postman):**## 📚 Dokumentasi API
+**📷 Screenshot Postman:**- userId: INT (Foreign Key → User.id)- username: STRING
 
 
 
-![Login Admin](images/login-admin.png)---
+![Login Admin](images/login-admin.png)- date: DATETIME- password: STRING (Di-hash)
 
 
 
----### 🔐 Autentikasi
+---- status: STRING (hadir/izin/sakit/alpha)- role: STRING (default: "user")
 
 
 
-#### Login User#### Login
+#### 2. Login User- createdAt: DATETIME- jabatan: STRING (default: "staff")
 
 ```http
 
+POST /auth/login- updatedAt: DATETIME- createdAt: DATETIME
+
+Content-Type: application/json
+
+```- updatedAt: DATETIME
+
+{
+
+  "username": "user",````
+
+  "password": "password123"
+
+}## 🔧 Instalasi
+
+```
+
+### Tabel Attendance
+
+**📷 Screenshot Postman:**
+
+### Prasyarat
+
+![Login User](images/login-user.png)
+
+- Node.js (v18 atau lebih tinggi)```sql
+
+---
+
+- MySQL Database- id: INT (Primary Key, Auto Increment)
+
+### 👥 Modul User Management (Khusus Admin)
+
+- npm atau yarn- userId: INT (Foreign Key → User.id)
+
+> ⚠️ **Catatan:** Semua endpoint user memerlukan header `Authorization: Bearer <admin-token>` dan role admin.
+
+- date: DATETIME
+
+#### 3. Buat User - Staff
+
+```http### Langkah-langkah Setup- status: STRING (hadir/izin/sakit/alpha)
+
+POST /user
+
+Authorization: Bearer <admin-token>- createdAt: DATETIME
+
+Content-Type: application/json
+
+1. **Clone repository**- updatedAt: DATETIME
+
+{
+
+  "name": "Staff User",```bash```
+
+  "username": "staff01",
+
+  "password": "password123",git clone <repository-url>
+
+  "role": "user",
+
+  "jabatan": "staff"cd latihanukl2025## 🔧 Instalasi
+
+}
+
+``````
+
+
+
+**📷 Screenshot Postman:**### Prasyarat
+
+
+
+![Create Staff](images/create-staff.png)2. **Install dependencies**
+
+
+
+---```bash* Node.js (v18 atau lebih tinggi)
+
+
+
+#### 4. Buat User - Managernpm install* MySQL Database
+
+```http
+
+POST /user```* npm atau yarn
+
+Authorization: Bearer <admin-token>
+
+Content-Type: application/json
+
+
+
+{3. **Konfigurasi environment**### Langkah-langkah Setup
+
+  "name": "Manager User",
+
+  "username": "manager01",   
+
+  "password": "password123",
+
+  "role": "user",   Buat file `.env` di root directory:1. **Clone repository**
+
+  "jabatan": "manager"
+
+}```env
+
+```
+
+DATABASE_URL="mysql://user:password@localhost:3306/attendance_db"```bash
+
+**📷 Screenshot Postman:**
+
+JWT_SECRET="your-super-secret-key-here"git clone <repository-url>
+
+![Create Manager](images/create-manager.png)
+
+```cd latihanukl2025
+
+---
+
+```
+
+#### 5. Buat User - Supervisor
+
+```http4. **Setup database**
+
+POST /user
+
+Authorization: Bearer <admin-token>```bash2. **Install dependencies**
+
+Content-Type: application/json
+
+# Generate Prisma Client
+
+{
+
+  "name": "Supervisor User",npx prisma generate```bash
+
+  "username": "supervisor01",
+
+  "password": "password123",npm install
+
+  "role": "user",
+
+  "jabatan": "supervisor"# Jalankan migrasi```
+
+}
+
+```npx prisma migrate dev
+
+
+
+**📷 Screenshot Postman:**3. **Konfigurasi environment**
+
+
+
+![Create Supervisor](images/create-supervisor.png)# (Opsional) Seed database   Buat file `.env` di root directory:
+
+
+
+---npx prisma db seed
+
+
+
+#### 6. Buat Admin Baru``````env
+
+```http
+
+POST /userDATABASE_URL="mysql://user:password@localhost:3306/attendance_db"
+
+Authorization: Bearer <admin-token>
+
+Content-Type: application/json5. **Jalankan aplikasi**JWT_SECRET="your-super-secret-key-here"
+
+
+
+{```bash```
+
+  "name": "Admin User",
+
+  "username": "admin02",# Mode development
+
+  "password": "password123",
+
+  "role": "admin",npm run start:dev4. **Setup database**
+
+  "jabatan": "admin"
+
+}
+
+```
+
+# Mode production```bash
+
+**📷 Screenshot Postman:**
+
+npm run build# Generate Prisma Client
+
+![Create Admin](images/create-admin.png)
+
+npm run start:prodnpx prisma generate
+
+---
+
+```
+
+#### 7. Lihat Semua User
+
+```http# Jalankan migrasi
+
+GET /user
+
+Authorization: Bearer <admin-token>Aplikasi akan berjalan di `http://localhost:3000`npx prisma migrate dev
+
+```
+
+
+
+**📷 Screenshot Postman:**
+
+---# (Opsional) Seed database
+
+![Get All Users](images/get-user.png)
+
+npx prisma db seed
+
+---
+
+## 📚 Dokumentasi API```
+
+#### 8. Lihat User Berdasarkan ID
+
+```http
+
+GET /user/:id
+
+Authorization: Bearer <admin-token>### 🔐 Autentikasi5. **Jalankan aplikasi**
+
+```
+
+
+
+**📷 Screenshot Postman:**
+
+#### Login Admin```bash
+
+![Get User By ID](images/get-userbyid.png)
+
+```http# Mode development
+
+---
+
+POST /auth/loginnpm run start:dev
+
+#### 9. Update User - Ubah Nama
+
+```httpContent-Type: application/json
+
+PUT /user/:id
+
+Authorization: Bearer <admin-token># Mode production
+
+Content-Type: application/json
+
+{npm run build
+
+{
+
+  "name": "Nama User Updated"  "username": "admin",npm run start:prod
+
+}
+
+```  "password": "password123"```
+
+
+
+**📷 Screenshot Postman:**}
+
+
+
+![Update User Name](images/put-changename.png)```Aplikasi akan berjalan di `http://localhost:3000`
+
+
+
+---
+
+
+
+#### 10. Update User - Ubah Jabatan**📷 Bukti Testing (Postman):**## 📚 Dokumentasi API
+
+```http
+
+PUT /user/:id
+
+Authorization: Bearer <admin-token>
+
+Content-Type: application/json![Login Admin](images/login-admin.png)---
+
+
+
+{
+
+  "jabatan": "manager"
+
+}---### 🔐 Autentikasi
+
+```
+
+
+
+**📷 Screenshot Postman:**
+
+#### Login User#### Login
+
+![Update User Jabatan](images/put-changejabatan.png)
+
+```http
+
+---
+
 POST /auth/login```http
 
-Content-Type: application/jsonPOST /auth/login
+#### 11. Update User - Ubah Password
+
+```httpContent-Type: application/jsonPOST /auth/login
+
+PUT /user/:id
+
+Authorization: Bearer <admin-token>Content-Type: application/json
 
 Content-Type: application/json
 
 {
 
-  "username": "user",{
+{
 
-  "password": "password123"  "username": "admin",
+  "password": "newpassword123"  "username": "user",{
 
-}  "password": "password123"
+}
 
-```}
+```  "password": "password123"  "username": "admin",
+
+
+
+**📷 Screenshot Postman:**}  "password": "password123"
+
+
+
+![Update User Password](images/put-changepassword.png)```}
+
+
+
+---```
+
+
+
+#### 12. Hapus User**📷 Bukti Testing (Postman):**
+
+```http
+
+DELETE /user/:id**📷 Bukti Testing (Postman):**
+
+Authorization: Bearer <admin-token>
+
+```![Login User](images/login-user.png)![Login Test](docs/images/login-test.png)
+
+
+
+**📷 Screenshot Postman:**
+
+
+
+![Delete User](images/delete-user.png)------
+
+
+
+---
+
+
+
+### 📅 Modul Attendance (Kehadiran)### 👥 Endpoint User (Khusus Admin)### 👥 Endpoint User (Khusus Admin)
+
+
+
+#### 13. Buat Kehadiran (User/Admin)
+
+```http
+
+POST /attendanceSemua endpoint user memerlukan header `Authorization: Bearer <token>` dan role admin.Semua endpoint user memerlukan header `Authorization: Bearer <token>` dan role admin.
+
+Authorization: Bearer <token>
+
+Content-Type: application/json
+
+
+
+{#### Buat User Baru - Staff#### Buat User Baru
+
+  "status": "hadir"
+
+}```http
+
+```
+
+POST /user```http
+
+**Status yang tersedia:** `hadir`, `izin`, `sakit`, `alpha`
+
+Authorization: Bearer <admin-token>POST /user
+
+**📷 Screenshot Postman:**
+
+Content-Type: application/jsonAuthorization: Bearer <admin-token>
+
+![Create Attendance](images/create-attendance.png)
+
+Content-Type: application/json
+
+---
+
+{
+
+#### 14. Lihat Semua Kehadiran (Khusus Admin)
+
+```http  "name": "Staff User",{
+
+GET /attendance
+
+Authorization: Bearer <admin-token>  "username": "staff01",  "name": "John Doe",
+
+```
+
+  "password": "password123",  "username": "johndoe",
+
+**📷 Screenshot Postman:**
+
+  "role": "user",  "password": "password123",
+
+![Get All Attendance](images/get-attendances.png)
+
+  "jabatan": "staff"  "role": "user",
+
+---
+
+}  "jabatan": "staff"
+
+#### 15. Lihat Riwayat Kehadiran User (User/Admin)
+
+```http```}
+
+GET /attendance/history
+
+Authorization: Bearer <token>```
 
 ```
 
 **📷 Bukti Testing (Postman):**
 
+**📷 Screenshot Postman:**
+
 **📷 Bukti Testing (Postman):**
 
-![Login User](images/login-user.png)![Login Test](docs/images/login-test.png)
+![Attendance History](images/get-userattendancehistory.png)
+
+![Create Staff](images/create-staff.png)![Create User Test](docs/images/create-user-test.png)
+
+---
+
+
+
+#### 16. Lihat Ringkasan Bulanan (User/Admin)
+
+```http---#### Lihat Semua User
+
+GET /attendance/summary
+
+Authorization: Bearer <token>
+
+```
+
+#### Buat User Baru - Manager```http
+
+**📷 Screenshot Postman:**
+
+```httpGET /user
+
+![Attendance Summary](images/get-summary.png)
+
+POST /userAuthorization: Bearer <admin-token>
+
+---
+
+Authorization: Bearer <admin-token>```
+
+#### 17. Analisis Kehadiran - Umum (Khusus Admin)
+
+```httpContent-Type: application/json
+
+POST /attendance/analyze
+
+Authorization: Bearer <admin-token>**📷 Bukti Testing (Postman):**
+
+Content-Type: application/json
+
+{![Get All Users](docs/images/get-users-test.png)
+
+{
+
+  "startDate": "2025-11-01",  "name": "Manager User",
+
+  "endDate": "2025-11-30"
+
+}  "username": "manager01",#### Lihat User Berdasarkan ID
+
+```
+
+  "password": "password123",
+
+**📷 Screenshot Postman:**
+
+  "role": "user",```http
+
+![Attendance Analysis](images/analyzeattendance.png)
+
+  "jabatan": "manager"GET /user/:id
+
+---
+
+}Authorization: Bearer <admin-token>
+
+#### 18. Analisis Kehadiran - Per Jabatan (Khusus Admin)
+
+```http``````
+
+POST /attendance/analyze
+
+Authorization: Bearer <admin-token>
+
+Content-Type: application/json
+
+**📷 Bukti Testing (Postman):****📷 Bukti Testing (Postman):**
+
+{
+
+  "startDate": "2025-11-01",![Get User By ID](docs/images/get-user-by-id.png)
+
+  "endDate": "2025-11-30",
+
+  "groupByJabatan": "manager"![Create Manager](images/create-manager.png)
+
+}
+
+```#### Update User
+
+
+
+**📷 Screenshot Postman:**---
+
+
+
+![Attendance Analysis by Jabatan](images/analyzeattendancebyjabatan.png)```http
+
+
+
+---#### Buat User Baru - SupervisorPUT /user/:id
+
+
+
+#### 19. Lihat Kehadiran Berdasarkan ID (Khusus Admin)```httpAuthorization: Bearer <admin-token>
+
+```http
+
+GET /attendance/:idPOST /userContent-Type: application/json
+
+Authorization: Bearer <admin-token>
+
+```Authorization: Bearer <admin-token>
+
+
+
+**📷 Screenshot Postman:**Content-Type: application/json{
+
+
+
+![Get Attendance By ID](images/get-attendancebyid.png)  "name": "John Doe Updated",
+
+
+
+---{  "jabatan": "manager"
+
+
+
+#### 20. Update Kehadiran (Khusus Admin)  "name": "Supervisor User",}
+
+```http
+
+PATCH /attendance/:id  "username": "supervisor01",```
+
+Authorization: Bearer <admin-token>
+
+Content-Type: application/json  "password": "password123",
+
+
+
+{  "role": "user",**📷 Bukti Testing (Postman):**
+
+  "status": "izin"
+
+}  "jabatan": "supervisor"![Update User](docs/images/update-user-test.png)
+
+```
+
+}
+
+**📷 Screenshot Postman:**
+
+```#### Hapus User
+
+![Update Attendance](images/update-attendance.png)
+
+
+
+---
+
+**📷 Bukti Testing (Postman):**```http
+
+#### 21. Hapus Kehadiran (Khusus Admin)
+
+```httpDELETE /user/:id
+
+DELETE /attendance/:id
+
+Authorization: Bearer <admin-token>![Create Supervisor](images/create-supervisor.png)Authorization: Bearer <admin-token>
+
+```
+
+```
+
+**📷 Screenshot Postman:**
+
+---
+
+![Delete Attendance](images/delete-attendance.png)
+
+**📷 Bukti Testing (Postman):**
+
+---
+
+#### Buat Admin Baru![Delete User](docs/images/delete-user-test.png)
+
+## 🎯 Format Response Standar
+
+```http
+
+### ✅ Response Sukses
+
+```jsonPOST /user---
+
+{
+
+  "statusCode": 200,Authorization: Bearer <admin-token>
+
+  "message": "Success message",
+
+  "success": true,Content-Type: application/json### 📅 Endpoint Kehadiran
+
+  "data": {
+
+    // Data object atau array
+
+  }
+
+}{#### Buat Kehadiran (User/Admin)
+
+```
+
+  "name": "Admin User",
+
+### ❌ Response Error
+
+```json  "username": "admin02",```http
+
+{
+
+  "statusCode": 400,  "password": "password123",POST /attendance
+
+  "message": "Error message",
+
+  "success": false,  "role": "admin",Authorization: Bearer <token>
+
+  "error": "Error details"
+
+}  "jabatan": "admin"Content-Type: application/json
+
+```
+
+}
+
+### 📊 Status Code yang Digunakan
+
+| Status Code | Keterangan |```{
+
+|-------------|------------|
+
+| 200 | OK - Request berhasil |  "status": "hadir"
+
+| 201 | Created - Resource berhasil dibuat |
+
+| 400 | Bad Request - Input tidak valid |**📷 Bukti Testing (Postman):**}
+
+| 401 | Unauthorized - Token tidak valid/expired |
+
+| 403 | Forbidden - Tidak memiliki akses |```
+
+| 404 | Not Found - Resource tidak ditemukan |
+
+| 500 | Internal Server Error - Error server |![Create Admin](images/create-admin.png)
+
+
+
+---**📷 Bukti Testing (Postman):**
+
+
+
+## 🔒 Keamanan---![Create Attendance](docs/images/create-attendance.png)
+
+
+
+### 🔑 JWT Token
+
+- ⏰ **Token Expiration:** 24 jam
+
+- 📋 **Token Payload:** `userId`, `username`, `role`#### Lihat Semua User#### Lihat Semua Kehadiran (Khusus Admin)
+
+- 📤 **Header Format:** `Authorization: Bearer <token>`
+
+- 🔄 **Refresh:** Login ulang setelah token expired```http
+
+
+
+### 👮 Role-Based Access Control (RBAC)GET /user```http
+
+
+
+| Endpoint | Admin | User |Authorization: Bearer <admin-token>GET /attendance
+
+|----------|-------|------|
+
+| POST /auth/login | ✅ | ✅ |```Authorization: Bearer <admin-token>
+
+| POST /user | ✅ | ❌ |
+
+| GET /user | ✅ | ❌ |```
+
+| GET /user/:id | ✅ | ❌ |
+
+| PUT /user/:id | ✅ | ❌ |**📷 Bukti Testing (Postman):**
+
+| DELETE /user/:id | ✅ | ❌ |
+
+| POST /attendance | ✅ | ✅ |**📷 Bukti Testing (Postman):**
+
+| GET /attendance | ✅ | ❌ |
+
+| GET /attendance/history | ✅ | ✅ (own) |![Get All Users](images/get-user.png)![Get All Attendance](docs/images/get-all-attendance.png)
+
+| GET /attendance/summary | ✅ | ✅ (own) |
+
+| POST /attendance/analyze | ✅ | ❌ |
+
+| GET /attendance/:id | ✅ | ❌ |
+
+| PATCH /attendance/:id | ✅ | ❌ |---#### Lihat Riwayat Kehadiran User (User/Admin)
+
+| DELETE /attendance/:id | ✅ | ❌ |
+
+
+
+### 🔐 Password Security
+
+- ✅ Hash dengan bcrypt (salt rounds: 10)#### Lihat User Berdasarkan ID```http
+
+- ✅ Password tidak pernah dikembalikan dalam response
+
+- ✅ Minimum password length: 6 karakter```httpGET /attendance/history
+
+- ✅ Password di-hash sebelum disimpan ke database
+
+GET /user/:idAuthorization: Bearer <token>
+
+---
+
+Authorization: Bearer <admin-token>```
+
+## 🛠️ Command Prisma
+
+```
+
+```bash
+
+# Generate Prisma Client**📷 Bukti Testing (Postman):**
+
+npx prisma generate
+
+**📷 Bukti Testing (Postman):**![Attendance History](docs/images/attendance-history.png)
+
+# Create migration
+
+npx prisma migrate dev --name migration_name
+
+
+
+# Apply migrations to production![Get User By ID](images/get-userbyid.png)#### Lihat Ringkasan Bulanan (User/Admin)
+
+npx prisma migrate deploy
+
+
+
+# Reset database (⚠️ HATI-HATI!)
+
+npx prisma migrate reset---```http
+
+
+
+# Open Prisma Studio (GUI Database)GET /attendance/summary
+
+npx prisma studio
+
+#### Update User - Ubah NamaAuthorization: Bearer <token>
+
+# Format schema.prisma
+
+npx prisma format```http```
+
+
+
+# Pull schema from existing databasePUT /user/:id
+
+npx prisma db pull
+
+Authorization: Bearer <admin-token>**📷 Bukti Testing (Postman):**
+
+# Push schema to database (tanpa migration)
+
+npx prisma db pushContent-Type: application/json![Attendance Summary](docs/images/attendance-summary.png)
+
+```
+
+
+
+---
+
+{#### Analisis Kehadiran (Khusus Admin)
+
+## 🧪 Testing
+
+  "name": "John Doe Updated"
+
+```bash
+
+# Run unit tests}```http
+
+npm run test
+
+```POST /attendance/analyze
+
+# Run E2E tests
+
+npm run test:e2eAuthorization: Bearer <admin-token>
+
+
+
+# Generate test coverage**📷 Bukti Testing (Postman):**Content-Type: application/json
+
+npm run test:cov
+
+
+
+# Run tests in watch mode
+
+npm run test:watch![Update User Name](images/put-changename.png){
+
+```
+
+  "startDate": "2025-11-01",
+
+---
+
+---  "endDate": "2025-11-30",
+
+## 📦 Postman Collection
+
+  "groupByJabatan": "manager"
+
+Untuk mempermudah testing API, sudah tersedia **Postman Collection** lengkap dengan 27 requests!
+
+#### Update User - Ubah Jabatan}
+
+### 📂 File yang Tersedia:
+
+1. **Attendance-API.postman_collection.json** - Collection dengan 27 requests```http```
+
+2. **Attendance-API.postman_environment.json** - Environment variables
+
+3. **POSTMAN_GUIDE.md** - Panduan lengkap penggunaanPUT /user/:id
+
+4. **POSTMAN_COLLECTION_SUMMARY.md** - Ringkasan collection
+
+Authorization: Bearer <admin-token>**📷 Bukti Testing (Postman):**
+
+### 📥 Cara Import ke Postman:
+
+Content-Type: application/json![Attendance Analysis](docs/images/attendance-analyze.png)
+
+1. Buka aplikasi **Postman**
+
+2. Klik tombol **Import** di pojok kiri atas
+
+3. Pilih **file** atau drag & drop kedua file JSON:
+
+   - `Attendance-API.postman_collection.json`{#### Lihat Kehadiran Berdasarkan ID (Khusus Admin)
+
+   - `Attendance-API.postman_environment.json`
+
+4. Pilih environment **"Attendance API"** di dropdown (pojok kanan atas)  "jabatan": "manager"
+
+5. Selesai! Siap untuk testing 🚀
+
+}```http
+
+### ✨ Fitur Collection:
+
+- ✅ 27 request lengkap (Auth, User, Attendance)```GET /attendance/:id
+
+- ✅ Auto-save token setelah login
+
+- ✅ Environment variables untuk token & IDsAuthorization: Bearer <admin-token>
+
+- ✅ Test scripts untuk validasi otomatis
+
+- ✅ Multiple test scenarios (Admin flow, User flow)**📷 Bukti Testing (Postman):**```
+
+
+
+---
+
+
+
+## 🚨 Troubleshooting![Update User Jabatan](images/put-changejabatan.png)**📷 Bukti Testing (Postman):**
+
+
+
+### ❌ Database Connection Error![Get Attendance By ID](docs/images/get-attendance-by-id.png)
+
+```bash
+
+# Solusi 1: Pastikan MySQL berjalan---
+
+sudo service mysql start    # Linux
+
+net start MySQL             # Windows#### Update Kehadiran (Khusus Admin)
+
+
+
+# Solusi 2: Cek DATABASE_URL di .env#### Update User - Ubah Password
+
+cat .env
+
+```http```http
+
+# Solusi 3: Test koneksi database
+
+npx prisma db pullPUT /user/:idPATCH /attendance/:id
+
+```
+
+Authorization: Bearer <admin-token>Authorization: Bearer <admin-token>
+
+### ❌ JWT Token Invalid
+
+**Penyebab:**Content-Type: application/jsonContent-Type: application/json
+
+- Token sudah expired (> 24 jam)
+
+- Format header salah
+
+- Token tidak dari endpoint `/auth/login`
+
+{{
+
+**Solusi:**
+
+1. Login ulang untuk mendapatkan token baru  "password": "newpassword123"  "status": "izin"
+
+2. Pastikan format header: `Authorization: Bearer <token>`
+
+3. Cek token di environment Postman}}
+
+
+
+### ❌ Port Already in Use``````
+
+```bash
+
+# Solusi 1: Ubah port di main.ts
+
+# Solusi 2: Kill process yang menggunakan port 3000
+
+# Windows:**📷 Bukti Testing (Postman):****📷 Bukti Testing (Postman):**
+
+netstat -ano | findstr :3000
+
+taskkill /PID <PID> /F![Update Attendance](docs/images/update-attendance.png)
+
+
+
+# Linux/Mac:![Update User Password](images/put-changepassword.png)
+
+lsof -ti:3000 | xargs kill -9
+
+#### Hapus Kehadiran (Khusus Admin)
+
+# Solusi 3: Gunakan port lain
+
+PORT=3001 npm run start:dev---
+
+```
+
+```http
+
+### ❌ Prisma Generate Error
+
+```bash#### Hapus UserDELETE /attendance/:id
+
+# Solusi: Clear cache dan regenerate
+
+rm -rf node_modules/.prisma```httpAuthorization: Bearer <admin-token>
+
+npx prisma generate
+
+```DELETE /user/:id```
+
+
+
+---Authorization: Bearer <admin-token>
+
+
+
+## 📝 Best Practices```**📷 Bukti Testing (Postman):**
+
+
+
+| No | Practice | Keterangan |![Delete Attendance](docs/images/delete-attendance.png)
+
+|----|----------|------------|
+
+| 1️⃣ | **Environment Variables** | Gunakan `.env` untuk data sensitif |**📷 Bukti Testing (Postman):**
+
+| 2️⃣ | **Validasi Input** | Implementasi DTO validation di semua endpoint |
+
+| 3️⃣ | **Error Handling** | Gunakan proper HTTP status codes |---
+
+| 4️⃣ | **Database Transaction** | Untuk operasi multiple database |
+
+| 5️⃣ | **Logging** | Implement logging untuk debugging |![Delete User](images/delete-user.png)
+
+| 6️⃣ | **Testing** | Test semua endpoint sebelum deployment |
+
+| 7️⃣ | **Documentation** | Update API docs saat ada perubahan |## 🎯 Format Response
+
+| 8️⃣ | **Version Control** | Commit dengan message yang jelas |
+
+---
+
+---
+
+... *(seluruh bagian berikut tetap sama seperti versi kamu sebelumnya, tidak diubah)* ...
+
+## 📊 Statistik API
+
+### 📅 Endpoint Kehadiran
+
+| Kategori | Jumlah |
+
+|----------|--------|---
+
+| Total Endpoints | 21 |
+
+| Auth Endpoints | 2 |#### Buat Kehadiran (User/Admin)
+
+| User Endpoints | 6 |
+
+| Attendance Endpoints | 13 |```http## 📷 Bukti Tambahan Testing
+
+| Admin Only | 14 |
+
+| User Access | 7 |POST /attendance
+
+
+
+---Authorization: Bearer <token>Kamu juga bisa menambahkan semua hasil testing secara berurutan di bagian ini, misalnya:
+
+
+
+## 📄 LisensiContent-Type: application/json
+
+
+
+Project ini dibuat untuk keperluan **UKL 2025**```markdown
+
+
+
+---{### 📦 Semua Hasil Test Postman
+
+
+
+## 👨‍💻 Developer  "status": "hadir"![Login Test](docs/images/login.png)
+
+
+
+Dibuat dengan ❤️ untuk **UKL 2025**}![Create User Test](docs/images/user-create.png)
+
+
+
+---```![Attendance Summary](docs/images/summary.png)
+
+
+
+## 📞 Kontak & Support```
+
+
+
+Jika ada pertanyaan atau issue, silakan buat issue di repository ini atau hubungi maintainer.**📷 Bukti Testing (Postman):**
 
 
 
@@ -378,393 +1518,20 @@ Content-Type: application/json
 
 
 
-### 👥 Endpoint User (Khusus Admin)### 👥 Endpoint User (Khusus Admin)
+<div align="center">![Create Attendance](images/create-attendance.png)
 
 
 
-Semua endpoint user memerlukan header `Authorization: Bearer <token>` dan role admin.Semua endpoint user memerlukan header `Authorization: Bearer <token>` dan role admin.
+### 🎉 **Selamat Coding dan Semoga Nilai UKL-mu Sempurna!** 🎉**🎉 Selamat Coding dan Semoga Nilai UKL-mu Sempurna! 🎉**
 
 
 
-#### Buat User Baru - Staff#### Buat User Baru
+**Made with ❤️ using NestJS**---
 
-```http
 
-POST /user```http
 
-Authorization: Bearer <admin-token>POST /user
+</div>```
 
-Content-Type: application/jsonAuthorization: Bearer <admin-token>
-
-Content-Type: application/json
-
-{
-
-  "name": "Staff User",{
-
-  "username": "staff01",  "name": "John Doe",
-
-  "password": "password123",  "username": "johndoe",
-
-  "role": "user",  "password": "password123",
-
-  "jabatan": "staff"  "role": "user",
-
-}  "jabatan": "staff"
-
-```}
-
-```
-
-**📷 Bukti Testing (Postman):**
-
-**📷 Bukti Testing (Postman):**
-
-![Create Staff](images/create-staff.png)![Create User Test](docs/images/create-user-test.png)
-
-
-
----#### Lihat Semua User
-
-
-
-#### Buat User Baru - Manager```http
-
-```httpGET /user
-
-POST /userAuthorization: Bearer <admin-token>
-
-Authorization: Bearer <admin-token>```
-
-Content-Type: application/json
-
-**📷 Bukti Testing (Postman):**
-
-{![Get All Users](docs/images/get-users-test.png)
-
-  "name": "Manager User",
-
-  "username": "manager01",#### Lihat User Berdasarkan ID
-
-  "password": "password123",
-
-  "role": "user",```http
-
-  "jabatan": "manager"GET /user/:id
-
-}Authorization: Bearer <admin-token>
-
-``````
-
-
-
-**📷 Bukti Testing (Postman):****📷 Bukti Testing (Postman):**
-
-![Get User By ID](docs/images/get-user-by-id.png)
-
-![Create Manager](images/create-manager.png)
-
-#### Update User
-
----
-
-```http
-
-#### Buat User Baru - SupervisorPUT /user/:id
-
-```httpAuthorization: Bearer <admin-token>
-
-POST /userContent-Type: application/json
-
-Authorization: Bearer <admin-token>
-
-Content-Type: application/json{
-
-  "name": "John Doe Updated",
-
-{  "jabatan": "manager"
-
-  "name": "Supervisor User",}
-
-  "username": "supervisor01",```
-
-  "password": "password123",
-
-  "role": "user",**📷 Bukti Testing (Postman):**
-
-  "jabatan": "supervisor"![Update User](docs/images/update-user-test.png)
-
-}
-
-```#### Hapus User
-
-
-
-**📷 Bukti Testing (Postman):**```http
-
-DELETE /user/:id
-
-![Create Supervisor](images/create-supervisor.png)Authorization: Bearer <admin-token>
-
-```
-
----
-
-**📷 Bukti Testing (Postman):**
-
-#### Buat Admin Baru![Delete User](docs/images/delete-user-test.png)
-
-```http
-
-POST /user---
-
-Authorization: Bearer <admin-token>
-
-Content-Type: application/json### 📅 Endpoint Kehadiran
-
-
-
-{#### Buat Kehadiran (User/Admin)
-
-  "name": "Admin User",
-
-  "username": "admin02",```http
-
-  "password": "password123",POST /attendance
-
-  "role": "admin",Authorization: Bearer <token>
-
-  "jabatan": "admin"Content-Type: application/json
-
-}
-
-```{
-
-  "status": "hadir"
-
-**📷 Bukti Testing (Postman):**}
-
-```
-
-![Create Admin](images/create-admin.png)
-
-**📷 Bukti Testing (Postman):**
-
----![Create Attendance](docs/images/create-attendance.png)
-
-
-
-#### Lihat Semua User#### Lihat Semua Kehadiran (Khusus Admin)
-
-```http
-
-GET /user```http
-
-Authorization: Bearer <admin-token>GET /attendance
-
-```Authorization: Bearer <admin-token>
-
-```
-
-**📷 Bukti Testing (Postman):**
-
-**📷 Bukti Testing (Postman):**
-
-![Get All Users](images/get-user.png)![Get All Attendance](docs/images/get-all-attendance.png)
-
-
-
----#### Lihat Riwayat Kehadiran User (User/Admin)
-
-
-
-#### Lihat User Berdasarkan ID```http
-
-```httpGET /attendance/history
-
-GET /user/:idAuthorization: Bearer <token>
-
-Authorization: Bearer <admin-token>```
-
-```
-
-**📷 Bukti Testing (Postman):**
-
-**📷 Bukti Testing (Postman):**![Attendance History](docs/images/attendance-history.png)
-
-
-
-![Get User By ID](images/get-userbyid.png)#### Lihat Ringkasan Bulanan (User/Admin)
-
-
-
----```http
-
-GET /attendance/summary
-
-#### Update User - Ubah NamaAuthorization: Bearer <token>
-
-```http```
-
-PUT /user/:id
-
-Authorization: Bearer <admin-token>**📷 Bukti Testing (Postman):**
-
-Content-Type: application/json![Attendance Summary](docs/images/attendance-summary.png)
-
-
-
-{#### Analisis Kehadiran (Khusus Admin)
-
-  "name": "John Doe Updated"
-
-}```http
-
-```POST /attendance/analyze
-
-Authorization: Bearer <admin-token>
-
-**📷 Bukti Testing (Postman):**Content-Type: application/json
-
-
-
-![Update User Name](images/put-changename.png){
-
-  "startDate": "2025-11-01",
-
----  "endDate": "2025-11-30",
-
-  "groupByJabatan": "manager"
-
-#### Update User - Ubah Jabatan}
-
-```http```
-
-PUT /user/:id
-
-Authorization: Bearer <admin-token>**📷 Bukti Testing (Postman):**
-
-Content-Type: application/json![Attendance Analysis](docs/images/attendance-analyze.png)
-
-
-
-{#### Lihat Kehadiran Berdasarkan ID (Khusus Admin)
-
-  "jabatan": "manager"
-
-}```http
-
-```GET /attendance/:id
-
-Authorization: Bearer <admin-token>
-
-**📷 Bukti Testing (Postman):**```
-
-
-
-![Update User Jabatan](images/put-changejabatan.png)**📷 Bukti Testing (Postman):**
-
-![Get Attendance By ID](docs/images/get-attendance-by-id.png)
-
----
-
-#### Update Kehadiran (Khusus Admin)
-
-#### Update User - Ubah Password
-
-```http```http
-
-PUT /user/:idPATCH /attendance/:id
-
-Authorization: Bearer <admin-token>Authorization: Bearer <admin-token>
-
-Content-Type: application/jsonContent-Type: application/json
-
-
-
-{{
-
-  "password": "newpassword123"  "status": "izin"
-
-}}
-
-``````
-
-
-
-**📷 Bukti Testing (Postman):****📷 Bukti Testing (Postman):**
-
-![Update Attendance](docs/images/update-attendance.png)
-
-![Update User Password](images/put-changepassword.png)
-
-#### Hapus Kehadiran (Khusus Admin)
-
----
-
-```http
-
-#### Hapus UserDELETE /attendance/:id
-
-```httpAuthorization: Bearer <admin-token>
-
-DELETE /user/:id```
-
-Authorization: Bearer <admin-token>
-
-```**📷 Bukti Testing (Postman):**
-
-![Delete Attendance](docs/images/delete-attendance.png)
-
-**📷 Bukti Testing (Postman):**
-
----
-
-![Delete User](images/delete-user.png)
-
-## 🎯 Format Response
-
----
-
-... *(seluruh bagian berikut tetap sama seperti versi kamu sebelumnya, tidak diubah)* ...
-
-### 📅 Endpoint Kehadiran
-
----
-
-#### Buat Kehadiran (User/Admin)
-
-```http## 📷 Bukti Tambahan Testing
-
-POST /attendance
-
-Authorization: Bearer <token>Kamu juga bisa menambahkan semua hasil testing secara berurutan di bagian ini, misalnya:
-
-Content-Type: application/json
-
-```markdown
-
-{### 📦 Semua Hasil Test Postman
-
-  "status": "hadir"![Login Test](docs/images/login.png)
-
-}![Create User Test](docs/images/user-create.png)
-
-```![Attendance Summary](docs/images/summary.png)
-
-```
-
-**📷 Bukti Testing (Postman):**
-
----
-
-![Create Attendance](images/create-attendance.png)
-
-**🎉 Selamat Coding dan Semoga Nilai UKL-mu Sempurna! 🎉**
-
----
-
-```
 
 #### Lihat Semua Kehadiran (Khusus Admin)
 
